@@ -1,11 +1,12 @@
 <!-- base.html -->
+ {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   {% load static %}
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% comment %} <title>{% block title %}My Django Project{% endblock %}</title> {% endcomment %}
+    <title>{% block title %}My Django Project{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 </head>
 <body>
