@@ -1,25 +1,26 @@
-{% extends 'base.html' %}
-{% block title %}Log In - My Django Project{% endblock %}
-{% block content %}
+{% extends 'base.html' %} {% comment %} {% block title %}Log In - My Django
+Project{% endblock %} {% endcomment %} {% block content %}
 <section class="gap">
-    <div class="container">
-       <div class="row">
-         
-         <div class="col-lg-6">
-           <div class="box register">
-             <div class="parallax" style="background-image: url(/img/patron.jpg)"></div>
-             <h3>Log In Your Account</h3>
-             <form>
-               <input type="text" name="text" placeholder="Name">
-               <input type="email" name="email" placeholder="Email Address">
-               <input type="password" name="password" placeholder="Password">
-              
-               <button type="submit" class="button">Register</button>
-             </form>
-           </div>
-         </div>
-       </div>
-    </div>
- </section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="box register">
+          <div
+            class="parallax"
+            style="background-image: url(/img/patron.jpg)"
+          ></div>
+          <h3>Log In Your Account</h3>
+          <form>
+            <input type="text" name="text" placeholder="Name" />
+            <input type="email" name="email" placeholder="Email Address" />
+            <input type="password" name="password" placeholder="Password" />
 
- {% endblock %}
+            <button type="submit" class="button">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
