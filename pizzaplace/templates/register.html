@@ -1,20 +1,18 @@
-{% extends 'base.html' %} {% comment %} {% block title %}Log In - My Django
-Project{% endblock %} {% endcomment %} {% block content %}
+{% extends 'base.html' %}
+
+{% block content %}
 <section class="gap">
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
         <div class="box register">
-          <div
-            class="parallax"
-            style="background-image: url(/img/patron.jpg)"
-          ></div>
-          <h3>Log In Your Account</h3>
-          <form>
-            <input type="text" name="text" placeholder="Name" />
-            <input type="email" name="email" placeholder="Email Address" />
-            <input type="password" name="password" placeholder="Password" />
-
+          <div class="parallax" style="background-image: url(/img/patron.jpg)"></div>
+          <h3>Register Your Account</h3>
+          <form method="post">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Name" required />
+            <input type="email" name="email" placeholder="Email Address" required />
+            <input type="password" name="password" placeholder="Password" required />
             <button type="submit" class="button">Register</button>
           </form>
         </div>
@@ -22,5 +20,4 @@ Project{% endblock %} {% endcomment %} {% block content %}
     </div>
   </div>
 </section>
-
 {% endblock %}
