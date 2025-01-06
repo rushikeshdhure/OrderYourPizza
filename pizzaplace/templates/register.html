@@ -8,6 +8,15 @@
         <div class="box register">
           <div class="parallax" style="background-image: url(/img/patron.jpg)"></div>
           <h3>Register Your Account</h3>
+
+          {% if errors %}
+            <div class="alert alert-danger">
+              {% for field, error in errors.items %}
+                <p>{{ field }}: {{ error.0 }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+
           <form method="post">
             {% csrf_token %}
             <input type="text" name="name" placeholder="Name" required />
