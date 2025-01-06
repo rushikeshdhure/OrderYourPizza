@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pizza',
         'USER': 'postgres',
-        'PASSWORD': 'S2K@12345', # 'admin'
+        'PASSWORD': 'S2K@12345',
         'HOST': 'localhost',  # or the IP address if PostgreSQL is on a different server
         'PORT': '5432',  # default port for PostgreSQL
     }

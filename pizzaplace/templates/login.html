@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block title %}Log In - My Django Project{% endblock %}
-
 {% block content %}
 <section class="gap">
     <div class="container">
@@ -10,6 +7,18 @@
             <div class="col-lg-6">
                 <div class="box login">
                     <h3>Log In Your Account</h3>
+                    
+                    <!-- Only adding error messages display -->
+                    {% if errors %}
+                    <div class="alert alert-danger">
+                        {% for field, error in errors.items %}
+                            {% for e in error %}
+                                <p>{{ e }}</p>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
                     <form method="POST" action="{% url 'login' %}">
                         {% csrf_token %}
                         <input type="email" name="email" placeholder="Username or email address" required>
