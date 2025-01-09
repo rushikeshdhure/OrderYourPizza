@@ -1,4 +1,6 @@
-<%- include('./partials/header') %>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 <section class="gap">
     <div class="container">
        <form class="woocommerce-cart-form">
@@ -65,5 +67,4 @@
        </form>
     </div>
  </section>
-
-<%- include('./partials/footer') %>
+{% endblock %}

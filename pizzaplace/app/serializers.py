@@ -20,10 +20,17 @@ class LoginSerializer(serializers.Serializer):
         if email and password:
             try:
                 user = Register.objects.get(email=email, password=password)
-                data['user'] = user
+
+                if user:
+                    if user.is_active:
+                        data['user'] = user
+                    else:
+                        raise serializers.ValidationError('User account is disabled.')
+                else:
+                    raise serializers.ValidationError('Invalid email or password.')
             except Register.DoesNotExist:
-                raise ValidationError('Invalid email or password.')
+                raise serializers.ValidationError('Invalid email or password.')
         else:
-            raise ValidationError('Must provide email and password.')
+            raise serializers.ValidationError('Must provide email and password.')
         
         return data

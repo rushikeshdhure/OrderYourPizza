@@ -2,41 +2,56 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css.map' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/color.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/jquery.fancybox.min.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}">
-  <!-- Include any other head elements or CSS files -->
-</head>
-<body>
-  {% include 'header.html' %}
+  <head>
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/bootstrap.min.css.map' %}"
+    />
+    <link rel="stylesheet" href="{% static 'assets/css/color.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/fontawesome.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/jquery.fancybox.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/owl.carousel.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/css/owl.theme.default.min.css' %}"
+    />
+    <!-- Include any other head elements or CSS files -->
+  </head>
+  <body>
+    {% include 'header.html' %}
 
-  <!-- Main Content -->
-  <main>
-    {% block content %}
-    <!-- Page-specific content will go here -->
-    {% endblock %}
-  </main>
+    <!-- Main Content -->
+    <main>
+      {% block content %}
+      <!-- Page-specific content will go here -->
+      {% endblock %}
+    </main>
 
-  {% include 'footer.html' %}
+    {% include 'footer.html' %}
 
-  <!-- Include JavaScript files -->
-  <script src="{% static 'assets/js/mbootstrap.min.js' %}"></script>
-  <script src="{% static 'assets/js/contact.js' %}"></script>
-  <script src="{% static 'assets/js/custom.js' %}"></script>
-  <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
-  <script src="{% static 'assets/js/jquery.fancybox.min.js' %}"></script>
-  <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
-  <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'assets/js/preloader.js' %}"></script>
-  <script src="{% static 'assets/js/sweetalert.min.js' %}"></script>
-  <script src="{% static 'assets/jquery-3.6.0.min.js' %}"></script>
-</body>
+    <!-- Include JavaScript files -->
+    <script src="{% static 'assets/js/mbootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/contact.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/js/preloader.js' %}"></script>
+    <script src="{% static 'assets/js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'assets/jquery-3.6.0.min.js' %}"></script>
+  </body>
 </html>

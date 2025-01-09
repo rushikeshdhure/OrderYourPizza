@@ -4,6 +4,9 @@ from .serializers import RegisterSerializer,LoginSerializer
 from rest_framework.response import Response
 from django.core.exceptions import ValidationError
 from app.models import Register
+from django.contrib.auth import login,logout
+
+
 def index_view(request):
     return render(request, 'index.html')
 
@@ -31,6 +34,8 @@ class LoginView(APIView):
     template_name = 'login.html'
 
     def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('menu')
         return render(request, self.template_name)
 
     def post(self, request):
@@ -38,6 +43,7 @@ class LoginView(APIView):
         
         if serializer.is_valid():
             user = serializer.validated_data['user']
+                        
             # Store user information in session
             request.session['user_id'] = user.id
             request.session['user_email'] = user.email
@@ -49,7 +55,21 @@ class LoginView(APIView):
             else:
                 request.session.set_expiry(0)  # Until browser closes
 
-            return redirect('index')  # Replace 'home' with your dashboard URL
+            return redirect('menu')  # Replace 'home' with your dashboard URL
         
         # If validation fails, render the template with errors
         return render(request, self.template_name, {'errors': serializer.errors})
+
+class LogoutView(APIView):
+    def get(self, request):
+        # Clear session
+        request.session.flush()
+        return redirect('login')
+
+
+def ordersview(request):
+    return render(request, 'orders.html')
+
+
+def menu(request):
+    return render(request, 'menu.html')
