@@ -1,8 +1,6 @@
 # serializers.py
 from rest_framework import serializers
-from .models import Register
-
-from django.core.exceptions import ValidationError
+from .models import Register,AddPizza
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Register
@@ -34,3 +32,15 @@ class LoginSerializer(serializers.Serializer):
             raise serializers.ValidationError('Must provide email and password.')
         
         return data
+    
+
+class PizzaSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+    class Meta:
+        model = AddPizza
+        fields = ['id', 'name', 'description', 'price', 'image', 'is_available', 'created_at']
+
+    def get_image(self, obj):
+        if obj.image:
+            return self.context['request'].build_absolute_uri(obj.image.url)
+        return None

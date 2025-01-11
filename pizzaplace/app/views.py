@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
 from rest_framework.views import APIView
-from .serializers import RegisterSerializer,LoginSerializer
+from .serializers import RegisterSerializer,LoginSerializer,PizzaSerializer
 from rest_framework.response import Response
-from django.core.exceptions import ValidationError
-from app.models import Register
+from app.models import Register, AddPizza
 from django.contrib.auth import login,logout
-
+from rest_framework import status
 
 def index_view(request):
     return render(request, 'index.html')
@@ -65,8 +64,23 @@ class LogoutView(APIView):
         # Clear session
         request.session.flush()
         return redirect('login')
-
-
+    
+class AddPizzaView(APIView):
+    def get(self, request):
+        try:
+            pizzas = AddPizza.objects.filter(is_available=True).order_by('created_at')
+            serializer = PizzaSerializer(pizzas, many=True, context={'request': request})
+            return Response({
+                'status': 'success',
+                'message': 'Pizzas fetched successfully',
+                'data': serializer.data
+            }, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({
+                'status': 'error',
+                'message': str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
 def ordersview(request):
     return render(request, 'orders.html')
 

@@ -355,5 +355,38 @@ window.onload = calcScrollValue;
 
 
 
-/* 12. Preloader */
-       
+// custom.js
+(function () {
+  const calcScrollValue = () => {
+    let scrollProgress = document.getElementById("progress");
+    let progressValue = document.getElementById("progress-value");
+
+    // Check if elements exist before accessing them
+    if (!scrollProgress || !progressValue) return;
+
+    let pos = document.documentElement.scrollTop;
+    let calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrollValue = Math.round((pos * 100) / calcHeight);
+
+    if (pos > 100) {
+      scrollProgress.style.display = "grid";
+    } else {
+      scrollProgress.style.display = "none";
+    }
+
+    scrollProgress.addEventListener("click", () => {
+      document.documentElement.scrollTop = 0;
+    });
+
+    scrollProgress.style.background = `conic-gradient(#f3274c ${scrollValue}%, #d7d7d7 ${scrollValue}%)`;
+  };
+
+  // Add event listeners only if the element exists
+  window.addEventListener('load', () => {
+    const scrollProgress = document.getElementById("progress");
+    if (scrollProgress) {
+      calcScrollValue();
+      window.addEventListener("scroll", calcScrollValue);
+    }
+  });
+})();

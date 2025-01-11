@@ -117,6 +117,45 @@ p {
     display: none;
 }
 
+/* css for cart button */
+.cart-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 250px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-total {
+    margin-top: 10px;
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Show dropdown when cart is hovered */
+.cart-container:hover .cart-dropdown {
+    display: block;
+}
+
+
 /* Footer Styles */
 footer {
     background-color: #f5f8fd;
@@ -188,28 +227,143 @@ footer {
     padding: 50px 0;
 }
 
+.menu-header {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+
+
+/* css for home page */
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #f3274c 0%, #ff6b6b 100%);
+    color: white;
+    padding: 100px 0;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.hero-image img {
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Featured Pizzas */
+.pizza-card {
+    text-align: center;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.pizza-card:hover {
+    transform: translateY(-10px);
+}
+
+.pizza-card img {
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* About Us Section */
+.about-highlights {
+    list-style: none;
+    padding: 0;
+}
+
+.about-highlights li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Testimonials */
+.testimonial-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.customer-info {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.customer-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Call to Action */
+.cta {
+    background: linear-gradient(135deg, #ffd40d 0%, #ffeb3b 100%);
+    color: black;
+}
+
+
+
+
+
+
+.pizza-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
 .col-2-4 {
     width: 20%;
     padding: 0 15px;
     float: left;
 }
 
+/* Menu Item Styles */
 .menu-item {
     background: #fff;
-    border-radius: 8px;
+    border-radius: 15px;
     padding: 15px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .menu-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .menu-img-container {
     position: relative;
-    padding-top: 100%;
+    padding-top: 75%;
+    /* 4:3 Aspect Ratio */
     overflow: hidden;
     border-radius: 8px;
 }
@@ -223,20 +377,45 @@ footer {
     object-fit: cover;
 }
 
+.menu-item-details {
+    padding: 20px;
+}
+
+.item-name {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.item-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+    height: 40px;
+    overflow: hidden;
+}
+
 .price-tag {
-    font-size: 24px;
+    font-size: 1.5rem;
     color: #f3274c;
-    font-weight: 600;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.currency {
+    font-size: 1rem;
+    margin-right: 5px;
 }
 
 .btn-add-cart {
     width: 100%;
+    padding: 12px;
     background: #ffd40d;
-    color: black;
+    color: #000;
     border: none;
-    padding: 12px 20px;
     border-radius: 8px;
-    transition: 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .btn-add-cart:hover {
@@ -252,7 +431,6 @@ footer {
     gap: 15px;
     margin-left: auto;
 }
-
 
 .user-profile {
     position: relative;
@@ -316,3 +494,54 @@ footer {
 .header-buttons {
     display: none;
 }
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .pizza-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .pizza-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .pizza-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+.item-description {
+    max-height: 60px;
+    overflow: hidden;
+    position: relative;
+    transition: max-height 0.3s ease;
+}
+
+.item-description.expanded {
+    max-height: none;
+}
+
+.read-more {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+.modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+

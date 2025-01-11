@@ -38,7 +38,15 @@
               </li>
               {% endif %}
             </ul>
-            <a href="/cart" class="button cart-button">Cart</a>
+            <div class="cart-container">
+              <a href="#" class="button cart-button"
+                >Cart <span class="cart-count">(0)</span></a
+              >
+              <div class="cart-dropdown">
+                <div class="cart-items"></div>
+                <div class="cart-total">Total: $0.00</div>
+              </div>
+            </div>
           </nav>
         </div>
 

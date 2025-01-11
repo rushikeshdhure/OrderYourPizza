@@ -1,197 +1,59 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-<section class="menu-section gap">
-    <div class="container">
-        <!-- Menu Header -->
-        <div class="row mb-5">
-            <div class="col-12 text-center">
-                <h1 class="section-title">Our Delicious Menu</h1>
-                <p class="section-subtitle">Choose from our wide range of pizzas</p>
-            </div>
-        </div>
-
-        <!-- Pizza Grid -->
-        <div class="row">
-            <!-- Pizza 1 -->
-            <div class="col-2-4">
-                <div class="menu-item text-center mb-4">
-                    <div class="menu-img-container">
-                        <img src="{% static 'Screenshots/Screenshot (2).png' %}" alt="Pizza" class="img-fluid rounded">
-                    </div>
-                    <div class="menu-item-details mt-3">
-                        <h5 class="item-name">Margherita Pizza</h5>
-                        <div class="price-tag mb-2">
-                            <span class="currency">RS</span>
-                            <span class="amount">299</span>
-                        </div>
-                        <button class="btn btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pizza 2 -->
-            <div class="col-2-4">
-                <div class="menu-item text-center mb-4">
-                    <div class="menu-img-container">
-                        <img src="{% static 'Screenshots/Screenshot (2).png' %}" alt="Pizza" class="img-fluid rounded">
-                    </div>
-                    <div class="menu-item-details mt-3">
-                        <h5 class="item-name">Pepperoni Pizza</h5>
-                        <div class="price-tag mb-2">
-                            <span class="currency">RS</span>
-                            <span class="amount">399</span>
-                        </div>
-                        <button class="btn btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pizza 3 -->
-            <div class="col-2-4">
-                <div class="menu-item text-center mb-4">
-                    <div class="menu-img-container">
-                        <img src="{% static 'Screenshots/Screenshot (2).png' %}" alt="Pizza" class="img-fluid rounded">
-                    </div>
-                    <div class="menu-item-details mt-3">
-                        <h5 class="item-name">BBQ Chicken Pizza</h5>
-                        <div class="price-tag mb-2">
-                            <span class="currency">RS</span>
-                            <span class="amount">449</span>
-                        </div>
-                        <button class="btn btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pizza 4 -->
-            <div class="col-2-4">
-                <div class="menu-item text-center mb-4">
-                    <div class="menu-img-container">
-                        <img src="{% static 'Screenshots/Screenshot (2).png' %}" alt="Pizza" class="img-fluid rounded">
-                    </div>
-                    <div class="menu-item-details mt-3">
-                        <h5 class="item-name">Veggie Pizza</h5>
-                        <div class="price-tag mb-2">
-                            <span class="currency">RS</span>
-                            <span class="amount">349</span>
-                        </div>
-                        <button class="btn btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pizza 5 -->
-            <div class="col-2-4">
-                <div class="menu-item text-center mb-4">
-                    <div class="menu-img-container">
-                        <img src="{% static 'Screenshots/Screenshot (2).png' %}" alt="Pizza" class="img-fluid rounded">
-                    </div>
-                    <div class="menu-item-details mt-3">
-                        <h5 class="item-name">Supreme Pizza</h5>
-                        <div class="price-tag mb-2">
-                            <span class="currency">RS</span>
-                            <span class="amount">499</span>
-                        </div>
-                        <button class="btn btn-add-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Repeat the above structure for remaining 10 pizzas to complete 5x3 grid -->
-            <!-- Just copy-paste the above div.col-2-4 structure 10 more times -->
-
-        </div>
+{% extends 'index.html' %} {% load static %} {% block content %}
+<section class="menu-section">
+  <div class="container">
+    <!-- Menu Header -->
+    <div class="menu-header text-center mb-5">
+      <h1 class="section-title">Our Delicious Menu</h1>
+      <p class="section-subtitle">Choose from our wide range of pizzas</p>
     </div>
+    <!-- Pizza Grid -->
+    <div class="pizza-grid" id="pizzaGrid">
+      <!-- Pizzas will be loaded here dynamically -->
+    </div>
+  </div>
 </section>
 
-<style>
-    .col-2-4 {
-        width: 20%;
-        padding: 0 15px;
-        float: left;
-    }
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetchPizzas();
+  });
 
-    .menu-item {
-        background: #fff;
-        border-radius: 8px;
-        padding: 15px;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .menu-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    .menu-img-container {
-        position: relative;
-        padding-top: 100%;
-        overflow: hidden;
-        border-radius: 8px;
-    }
-
-    .menu-img-container img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .item-name {
-        font-size: 16px;
-        font-weight: 600;
-        color: #333;
-        margin: 10px 0;
-    }
-
-    .price-tag {
-        font-size: 18px;
-        color: #ff9900;
-        font-weight: 600;
-    }
-
-    .btn-add-cart {
-        background: #ff9900;
-        color: white;
-        border: none;
-        padding: 8px 20px;
-        border-radius: 5px;
-        font-size: 14px;
-        transition: background 0.3s ease;
-        width: 100%;
-    }
-
-    .btn-add-cart:hover {
-        background: #e68a00;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1200px) {
-        .col-2-4 {
-            width: 25%;
+  function fetchPizzas() {
+    fetch("/api/addpizza/")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "success") {
+          displayPizzas(data.data);
+        } else {
+          console.error("Error fetching pizzas:", data.message);
         }
-    }
+      })
+      .catch((error) => console.error("Error:", error));
+  }
 
-    @media (max-width: 992px) {
-        .col-2-4 {
-            width: 33.333%;
-        }
-    }
+  function displayPizzas(pizzas) {
+    const pizzaGrid = document.getElementById("pizzaGrid");
+    pizzaGrid.innerHTML = "";
 
-    @media (max-width: 768px) {
-        .col-2-4 {
-            width: 50%;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .col-2-4 {
-            width: 100%;
-        }
-    }
-</style>
+    pizzas.forEach((pizza) => {
+      const pizzaElement = `
+            <div class="menu-item">
+                <div class="menu-img-container">
+                    <img src="${pizza.image}" alt="${pizza.name}" class="img-fluid">
+                </div>
+                <div class="menu-item-details mt-3">
+                    <h5 class="item-name">${pizza.name}</h5>
+                    <p class="item-description">${pizza.description}</p>
+                    <div class="price-tag mb-2">
+                        <span class="currency">RS</span>
+                        <span class="amount">${pizza.price}</span>
+                    </div>
+                    <button class="btn btn-add-cart" data-pizza-id="${pizza.id}">Add to Cart</button>
+                </div>
+            </div>
+        `;
+      pizzaGrid.innerHTML += pizzaElement;
+    });
+  }
+</script>
 {% endblock %}
